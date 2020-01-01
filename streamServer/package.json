@@ -1,0 +1,12 @@
+{
+  "name": "streamServer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node streamServer.js"
+  },
+  "dependencies": {
+    "node-media-server": "^2.1.4"
+  }
+}
