@@ -11,5 +11,5 @@ Stream Server: rtmp://localhost/live
 http-flv Video Link:
 http://localhost:8000/live/STREAM_NAME.flv
 
-HLS Video Link:
+HLS Video Link(m3u8):
 http://localhost:8000/live/STREAM_NAME/index.m3u8
