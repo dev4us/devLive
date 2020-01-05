@@ -1,0 +1,9 @@
+type SignInResponse {
+  ok: Boolean!
+  error: String
+  token: String
+}
+
+type Query {
+  SignIn(username: String!, password: String!): SignInResponse!
+}

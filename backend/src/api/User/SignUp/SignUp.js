@@ -1,15 +1,15 @@
 import { prisma } from "../../../../generated/prisma-client";
-import { encrypt } from "../../../helpers/password";
+import { encryptPwd } from "../../../helpers/password";
 
 export default {
   Mutation: {
     SignUp: async (_, args) => {
       const { username, nickname, password } = args;
-      const encryptPwd = await encrypt(password);
+      const encryptedPwd = await encryptPwd(password);
       const user = await prisma.createUser({
         username,
         nickname,
-        password: encryptPwd
+        password: encryptedPwd
       });
 
       if (user) {
