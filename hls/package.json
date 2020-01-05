@@ -7,6 +7,9 @@
     "start": "node streamServer.js"
   },
   "dependencies": {
-    "node-media-server": "^2.1.4"
+    "fluent-ffmpeg": "^2.1.2",
+    "node-cron": "^2.0.3",
+    "node-media-server": "^2.1.4",
+    "request": "^2.88.0"
   }
 }
