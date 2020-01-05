@@ -1,3 +1,6 @@
+const express = require("express"),
+  app = express();
+
 const NodeMediaServer = require("node-media-server");
 const cron = require("node-cron");
 const request = require("request");
@@ -24,6 +27,9 @@ cron.schedule("*/5 * * * * *", function() {
     }
   );
 });
+
+app.use("/thumbnails", express.static("./thumbnails"));
+app.listen(8888, () => console.log(`provide Thumbnail on ${"8888"}!`));
 
 var nms = new NodeMediaServer(streamConfig);
 nms.run();
