@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "deploy": "prisma deploy",
+    "generate": "prisma generate",
+    "prisma": "yarn run deploy && yarn run generate",
+    "start": "nodemon --exec babel-node src/server.js"
+  },
   "dependencies": {
     "@babel/core": "^7.5.5",
     "@babel/node": "^7.5.5",
@@ -19,11 +25,5 @@
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
-  },
-  "scripts": {
-    "deploy": "prisma deploy",
-    "generate": "prisma generate",
-    "prisma": "yarn run deploy && yarn run generate",
-    "dev": "nodemon --exec babel-node src/server.js"
   }
 }
