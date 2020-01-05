@@ -1,0 +1,8 @@
+type User {
+  id: ID!
+  username: String!
+  nickname: String
+  password: String!
+  profileImage: String
+  streamKey: String
+}
