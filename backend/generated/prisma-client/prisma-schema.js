@@ -52,7 +52,11 @@ type Subscription {
 
 type User {
   id: ID!
-  name: String!
+  username: String!
+  nickname: String
+  password: String!
+  profileImage: String
+  streamKey: String
 }
 
 type UserConnection {
@@ -63,7 +67,11 @@ type UserConnection {
 
 input UserCreateInput {
   id: ID
-  name: String!
+  username: String!
+  nickname: String
+  password: String!
+  profileImage: String
+  streamKey: String
 }
 
 type UserEdge {
@@ -74,13 +82,25 @@ type UserEdge {
 enum UserOrderByInput {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
+  username_ASC
+  username_DESC
+  nickname_ASC
+  nickname_DESC
+  password_ASC
+  password_DESC
+  profileImage_ASC
+  profileImage_DESC
+  streamKey_ASC
+  streamKey_DESC
 }
 
 type UserPreviousValues {
   id: ID!
-  name: String!
+  username: String!
+  nickname: String
+  password: String!
+  profileImage: String
+  streamKey: String
 }
 
 type UserSubscriptionPayload {
@@ -102,11 +122,19 @@ input UserSubscriptionWhereInput {
 }
 
 input UserUpdateInput {
-  name: String
+  username: String
+  nickname: String
+  password: String
+  profileImage: String
+  streamKey: String
 }
 
 input UserUpdateManyMutationInput {
-  name: String
+  username: String
+  nickname: String
+  password: String
+  profileImage: String
+  streamKey: String
 }
 
 input UserWhereInput {
@@ -124,20 +152,76 @@ input UserWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  name: String
-  name_not: String
-  name_in: [String!]
-  name_not_in: [String!]
-  name_lt: String
-  name_lte: String
-  name_gt: String
-  name_gte: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
+  username: String
+  username_not: String
+  username_in: [String!]
+  username_not_in: [String!]
+  username_lt: String
+  username_lte: String
+  username_gt: String
+  username_gte: String
+  username_contains: String
+  username_not_contains: String
+  username_starts_with: String
+  username_not_starts_with: String
+  username_ends_with: String
+  username_not_ends_with: String
+  nickname: String
+  nickname_not: String
+  nickname_in: [String!]
+  nickname_not_in: [String!]
+  nickname_lt: String
+  nickname_lte: String
+  nickname_gt: String
+  nickname_gte: String
+  nickname_contains: String
+  nickname_not_contains: String
+  nickname_starts_with: String
+  nickname_not_starts_with: String
+  nickname_ends_with: String
+  nickname_not_ends_with: String
+  password: String
+  password_not: String
+  password_in: [String!]
+  password_not_in: [String!]
+  password_lt: String
+  password_lte: String
+  password_gt: String
+  password_gte: String
+  password_contains: String
+  password_not_contains: String
+  password_starts_with: String
+  password_not_starts_with: String
+  password_ends_with: String
+  password_not_ends_with: String
+  profileImage: String
+  profileImage_not: String
+  profileImage_in: [String!]
+  profileImage_not_in: [String!]
+  profileImage_lt: String
+  profileImage_lte: String
+  profileImage_gt: String
+  profileImage_gte: String
+  profileImage_contains: String
+  profileImage_not_contains: String
+  profileImage_starts_with: String
+  profileImage_not_starts_with: String
+  profileImage_ends_with: String
+  profileImage_not_ends_with: String
+  streamKey: String
+  streamKey_not: String
+  streamKey_in: [String!]
+  streamKey_not_in: [String!]
+  streamKey_lt: String
+  streamKey_lte: String
+  streamKey_gt: String
+  streamKey_gte: String
+  streamKey_contains: String
+  streamKey_not_contains: String
+  streamKey_starts_with: String
+  streamKey_not_starts_with: String
+  streamKey_ends_with: String
+  streamKey_not_ends_with: String
   AND: [UserWhereInput!]
   OR: [UserWhereInput!]
   NOT: [UserWhereInput!]
@@ -145,6 +229,7 @@ input UserWhereInput {
 
 input UserWhereUniqueInput {
   id: ID
+  username: String
 }
 `
       }

@@ -101,21 +101,45 @@ export interface ClientConstructor<T> {
  * Types
  */
 
-export type UserOrderByInput = "id_ASC" | "id_DESC" | "name_ASC" | "name_DESC";
+export type UserOrderByInput =
+  | "id_ASC"
+  | "id_DESC"
+  | "username_ASC"
+  | "username_DESC"
+  | "nickname_ASC"
+  | "nickname_DESC"
+  | "password_ASC"
+  | "password_DESC"
+  | "profileImage_ASC"
+  | "profileImage_DESC"
+  | "streamKey_ASC"
+  | "streamKey_DESC";
 
 export type MutationType = "CREATED" | "UPDATED" | "DELETED";
 
 export interface UserCreateInput {
   id?: Maybe<ID_Input>;
-  name: String;
+  username: String;
+  nickname?: Maybe<String>;
+  password: String;
+  profileImage?: Maybe<String>;
+  streamKey?: Maybe<String>;
 }
 
 export interface UserUpdateInput {
-  name?: Maybe<String>;
+  username?: Maybe<String>;
+  nickname?: Maybe<String>;
+  password?: Maybe<String>;
+  profileImage?: Maybe<String>;
+  streamKey?: Maybe<String>;
 }
 
 export interface UserUpdateManyMutationInput {
-  name?: Maybe<String>;
+  username?: Maybe<String>;
+  nickname?: Maybe<String>;
+  password?: Maybe<String>;
+  profileImage?: Maybe<String>;
+  streamKey?: Maybe<String>;
 }
 
 export interface UserWhereInput {
@@ -133,20 +157,76 @@ export interface UserWhereInput {
   id_not_starts_with?: Maybe<ID_Input>;
   id_ends_with?: Maybe<ID_Input>;
   id_not_ends_with?: Maybe<ID_Input>;
-  name?: Maybe<String>;
-  name_not?: Maybe<String>;
-  name_in?: Maybe<String[] | String>;
-  name_not_in?: Maybe<String[] | String>;
-  name_lt?: Maybe<String>;
-  name_lte?: Maybe<String>;
-  name_gt?: Maybe<String>;
-  name_gte?: Maybe<String>;
-  name_contains?: Maybe<String>;
-  name_not_contains?: Maybe<String>;
-  name_starts_with?: Maybe<String>;
-  name_not_starts_with?: Maybe<String>;
-  name_ends_with?: Maybe<String>;
-  name_not_ends_with?: Maybe<String>;
+  username?: Maybe<String>;
+  username_not?: Maybe<String>;
+  username_in?: Maybe<String[] | String>;
+  username_not_in?: Maybe<String[] | String>;
+  username_lt?: Maybe<String>;
+  username_lte?: Maybe<String>;
+  username_gt?: Maybe<String>;
+  username_gte?: Maybe<String>;
+  username_contains?: Maybe<String>;
+  username_not_contains?: Maybe<String>;
+  username_starts_with?: Maybe<String>;
+  username_not_starts_with?: Maybe<String>;
+  username_ends_with?: Maybe<String>;
+  username_not_ends_with?: Maybe<String>;
+  nickname?: Maybe<String>;
+  nickname_not?: Maybe<String>;
+  nickname_in?: Maybe<String[] | String>;
+  nickname_not_in?: Maybe<String[] | String>;
+  nickname_lt?: Maybe<String>;
+  nickname_lte?: Maybe<String>;
+  nickname_gt?: Maybe<String>;
+  nickname_gte?: Maybe<String>;
+  nickname_contains?: Maybe<String>;
+  nickname_not_contains?: Maybe<String>;
+  nickname_starts_with?: Maybe<String>;
+  nickname_not_starts_with?: Maybe<String>;
+  nickname_ends_with?: Maybe<String>;
+  nickname_not_ends_with?: Maybe<String>;
+  password?: Maybe<String>;
+  password_not?: Maybe<String>;
+  password_in?: Maybe<String[] | String>;
+  password_not_in?: Maybe<String[] | String>;
+  password_lt?: Maybe<String>;
+  password_lte?: Maybe<String>;
+  password_gt?: Maybe<String>;
+  password_gte?: Maybe<String>;
+  password_contains?: Maybe<String>;
+  password_not_contains?: Maybe<String>;
+  password_starts_with?: Maybe<String>;
+  password_not_starts_with?: Maybe<String>;
+  password_ends_with?: Maybe<String>;
+  password_not_ends_with?: Maybe<String>;
+  profileImage?: Maybe<String>;
+  profileImage_not?: Maybe<String>;
+  profileImage_in?: Maybe<String[] | String>;
+  profileImage_not_in?: Maybe<String[] | String>;
+  profileImage_lt?: Maybe<String>;
+  profileImage_lte?: Maybe<String>;
+  profileImage_gt?: Maybe<String>;
+  profileImage_gte?: Maybe<String>;
+  profileImage_contains?: Maybe<String>;
+  profileImage_not_contains?: Maybe<String>;
+  profileImage_starts_with?: Maybe<String>;
+  profileImage_not_starts_with?: Maybe<String>;
+  profileImage_ends_with?: Maybe<String>;
+  profileImage_not_ends_with?: Maybe<String>;
+  streamKey?: Maybe<String>;
+  streamKey_not?: Maybe<String>;
+  streamKey_in?: Maybe<String[] | String>;
+  streamKey_not_in?: Maybe<String[] | String>;
+  streamKey_lt?: Maybe<String>;
+  streamKey_lte?: Maybe<String>;
+  streamKey_gt?: Maybe<String>;
+  streamKey_gte?: Maybe<String>;
+  streamKey_contains?: Maybe<String>;
+  streamKey_not_contains?: Maybe<String>;
+  streamKey_starts_with?: Maybe<String>;
+  streamKey_not_starts_with?: Maybe<String>;
+  streamKey_ends_with?: Maybe<String>;
+  streamKey_not_ends_with?: Maybe<String>;
   AND?: Maybe<UserWhereInput[] | UserWhereInput>;
   OR?: Maybe<UserWhereInput[] | UserWhereInput>;
   NOT?: Maybe<UserWhereInput[] | UserWhereInput>;
@@ -165,6 +245,7 @@ export interface UserSubscriptionWhereInput {
 
 export type UserWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
+  username?: Maybe<String>;
 }>;
 
 export interface NodeNode {
@@ -205,21 +286,33 @@ export interface BatchPayloadSubscription
 
 export interface UserPreviousValues {
   id: ID_Output;
-  name: String;
+  username: String;
+  nickname?: String;
+  password: String;
+  profileImage?: String;
+  streamKey?: String;
 }
 
 export interface UserPreviousValuesPromise
   extends Promise<UserPreviousValues>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
+  username: () => Promise<String>;
+  nickname: () => Promise<String>;
+  password: () => Promise<String>;
+  profileImage: () => Promise<String>;
+  streamKey: () => Promise<String>;
 }
 
 export interface UserPreviousValuesSubscription
   extends Promise<AsyncIterator<UserPreviousValues>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
+  username: () => Promise<AsyncIterator<String>>;
+  nickname: () => Promise<AsyncIterator<String>>;
+  password: () => Promise<AsyncIterator<String>>;
+  profileImage: () => Promise<AsyncIterator<String>>;
+  streamKey: () => Promise<AsyncIterator<String>>;
 }
 
 export interface UserEdge {
@@ -266,26 +359,42 @@ export interface UserSubscriptionPayloadSubscription
 
 export interface User {
   id: ID_Output;
-  name: String;
+  username: String;
+  nickname?: String;
+  password: String;
+  profileImage?: String;
+  streamKey?: String;
 }
 
 export interface UserPromise extends Promise<User>, Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
+  username: () => Promise<String>;
+  nickname: () => Promise<String>;
+  password: () => Promise<String>;
+  profileImage: () => Promise<String>;
+  streamKey: () => Promise<String>;
 }
 
 export interface UserSubscription
   extends Promise<AsyncIterator<User>>,
     Fragmentable {
   id: () => Promise<AsyncIterator<ID_Output>>;
-  name: () => Promise<AsyncIterator<String>>;
+  username: () => Promise<AsyncIterator<String>>;
+  nickname: () => Promise<AsyncIterator<String>>;
+  password: () => Promise<AsyncIterator<String>>;
+  profileImage: () => Promise<AsyncIterator<String>>;
+  streamKey: () => Promise<AsyncIterator<String>>;
 }
 
 export interface UserNullablePromise
   extends Promise<User | null>,
     Fragmentable {
   id: () => Promise<ID_Output>;
-  name: () => Promise<String>;
+  username: () => Promise<String>;
+  nickname: () => Promise<String>;
+  password: () => Promise<String>;
+  profileImage: () => Promise<String>;
+  streamKey: () => Promise<String>;
 }
 
 export interface UserConnection {
