@@ -1,0 +1,9 @@
+type GenerateStreamKeyResponse {
+  ok: Boolean!
+  error: String
+  streamKey: String
+}
+
+type Mutation {
+  GenerateStreamKey: GenerateStreamKeyResponse!
+}
