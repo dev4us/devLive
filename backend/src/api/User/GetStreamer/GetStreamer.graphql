@@ -1,0 +1,9 @@
+type GetStreamerResponse {
+  ok: Boolean!
+  error: String
+  user: User
+}
+
+type Query {
+  GetStreamer(streamKey: String!): GetStreamerResponse!
+}

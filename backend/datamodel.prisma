@@ -4,5 +4,5 @@ type User {
   nickname: String
   password: String!
   profileImage: String
-  streamKey: String
+  streamKey: String @unique
 }

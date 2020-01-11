@@ -246,6 +246,7 @@ export interface UserSubscriptionWhereInput {
 export type UserWhereUniqueInput = AtLeastOne<{
   id: Maybe<ID_Input>;
   username?: Maybe<String>;
+  streamKey?: Maybe<String>;
 }>;
 
 export interface NodeNode {
