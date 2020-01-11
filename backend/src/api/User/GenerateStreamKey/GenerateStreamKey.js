@@ -10,6 +10,16 @@ export default {
           .toString(36)
           .substr(2);
 
+        const existStreamKey = await prisma.user({ streamKey });
+
+        if (existStreamKey) {
+          return {
+            ok: false,
+            error: "일시적인 문제가 발생했습니다. 다시 시도해주세요",
+            streamKey: null
+          };
+        }
+
         await prisma.updateUser({
           data: {
             streamKey
