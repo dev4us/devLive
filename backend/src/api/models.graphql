@@ -5,4 +5,5 @@ type User {
   nickname: String
   profileImage: String
   streamKey: String
+  thumbnail: String
 }

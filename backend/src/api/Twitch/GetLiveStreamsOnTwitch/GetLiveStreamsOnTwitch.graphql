@@ -1,0 +1,9 @@
+type GetLiveStreamsOnTwitchResponse {
+  ok: Boolean!
+  error: String
+  liveStreams: [User]
+}
+
+type Query {
+  GetLiveStreamsOnTwitch: GetLiveStreamsOnTwitchResponse!
+}
