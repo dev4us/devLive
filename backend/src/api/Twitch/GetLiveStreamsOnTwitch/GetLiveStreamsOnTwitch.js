@@ -10,7 +10,7 @@ export default {
         };
 
         const liveStreams = await fetch(
-          "https://api.twitch.tv/kraken/streams/?limit=5",
+          "https://api.twitch.tv/kraken/streams/?limit=12",
           {
             method: "GET",
             headers: headers
@@ -21,7 +21,7 @@ export default {
 
         liveStreams.streams.map(val => {
           liveStreamArr.push({
-            profileImg: val.channel.logo,
+            profileImage: val.channel.logo,
             username: val.channel.name,
             nickname: val.channel.display_name,
             thumbnail: val.preview.medium

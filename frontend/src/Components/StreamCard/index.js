@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const StreamCard = ({ nickname, username, thumbnail, profileImage }) => {
   return (
@@ -7,7 +7,9 @@ const StreamCard = ({ nickname, username, thumbnail, profileImage }) => {
       <Container>
         <Thumbnail backgroundURL={thumbnail}>
           <Airon>LIVE</Airon>
-          <Profile>{`${nickname} (${username})`}</Profile>
+          <Profile
+            isGotProfileImage={typeof profileImage === null ? "" : profileImage}
+          >{`${nickname} (${username})`}</Profile>
           <ProfileImage backgroundURL={profileImage}></ProfileImage>
         </Thumbnail>
       </Container>
@@ -21,9 +23,11 @@ const Container = styled.div`
   width: 32%;
   min-width: 204px;
   cursor: pointer;
+  margin-bottom: 10px;
 
   &:hover {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.1725);
+    opacity: 0.8;
   }
 `;
 
@@ -56,6 +60,12 @@ const Profile = styled.div`
   color: white;
   padding: 5px 5px 5px 5px;
   font-size: 12px;
+
+  ${props =>
+    props.isGotProfileImage === null &&
+    css`
+      left: 5px;
+    `}
 `;
 
 const ProfileImage = styled.div`

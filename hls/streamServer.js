@@ -8,7 +8,7 @@ const request = require("request");
 const streamConfig = require("./streamConfig");
 const generateThumb = require("./generateThumb");
 
-cron.schedule("*/5 * * * * *", function() {
+cron.schedule("*/30 * * * * *", function() {
   console.log("running a task every 5 seconds");
   request.get(
     "http://127.0.0.1:" + streamConfig.http.port + "/api/streams",

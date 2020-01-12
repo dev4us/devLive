@@ -14,3 +14,19 @@ export const GET_LIVE_STREAMERS = gql`
     }
   }
 `;
+
+export const GET_LIVE_STREAMERS_ON_TWITCH = gql`
+  query {
+    GetLiveStreamsOnTwitch {
+      ok
+      error
+      liveStreams {
+        username
+        nickname
+        streamKey
+        profileImage
+        thumbnail
+      }
+    }
+  }
+`;

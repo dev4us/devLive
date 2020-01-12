@@ -5,42 +5,51 @@ import styled from "styled-components";
 import LeftFrame from "../../Components/LeftFrame";
 import StreamCard from "../../Components/StreamCard";
 
-import { GET_LIVE_STREAMERS } from "../../queries";
+import {
+  GET_LIVE_STREAMERS,
+  GET_LIVE_STREAMERS_ON_TWITCH
+} from "../../queries";
 
 const Main = () => {
-  const { data } = useQuery(GET_LIVE_STREAMERS);
-  console.log(data);
+  const hlsLiveStreams = useQuery(GET_LIVE_STREAMERS);
+  const twitchLiveStreams = useQuery(GET_LIVE_STREAMERS_ON_TWITCH);
+
   return (
     <Container>
       <LeftFrame>123</LeftFrame>
       <RightFrame>
         <Block>
-          <Title>Top Rated</Title>
+          <Title>Live Streams</Title>
         </Block>
         <StreamCardList>
-          {data &&
-            data.GetLiveStreamers &&
-            data.GetLiveStreamers.streamers &&
-            data.GetLiveStreamers.streamers.length > 0 &&
-            data.GetLiveStreamers.streamers.map((val, idx) => (
+          {hlsLiveStreams.data &&
+            hlsLiveStreams.data.GetLiveStreamers &&
+            hlsLiveStreams.data.GetLiveStreamers.streamers &&
+            hlsLiveStreams.data.GetLiveStreamers.streamers.length > 0 &&
+            hlsLiveStreams.data.GetLiveStreamers.streamers.map((val, idx) => (
               <StreamCard
                 key={idx}
                 thumbnail={`http://localhost:8888/thumbnails/${val.streamKey}/thumbnail.png`}
                 profileImage={val.profileImage}
                 nickname={val.nickname}
-                username={val.nickname}
+                username={val.username}
               />
             ))}
-          <StreamCard
-            thumbnail="http://localhost:8888/thumbnails/xbdkj3aimg/thumbnail.png"
-            nickname="덜렁이"
-            username="dev4us"
-          />
-          <StreamCard
-            thumbnail="http://localhost:8888/thumbnails/xbdkj3aimg/thumbnail.png"
-            nickname="덜렁이"
-            username="dev4us"
-          />
+          {twitchLiveStreams.data &&
+            twitchLiveStreams.data.GetLiveStreamsOnTwitch &&
+            twitchLiveStreams.data.GetLiveStreamsOnTwitch.liveStreams.map(
+              (val, idx) => {
+                return (
+                  <StreamCard
+                    key={idx}
+                    thumbnail={val.thumbnail}
+                    profileImage={val.profileImage}
+                    nickname={val.nickname}
+                    username={val.username}
+                  />
+                );
+              }
+            )}
         </StreamCardList>
       </RightFrame>
     </Container>
@@ -78,5 +87,6 @@ const StreamCardList = styled.div`
   justify-content: space-between;
   width: 100%;
   padding: 15px 0px 15px 0px;
+  flex-wrap: wrap;
 `;
 export default Main;
