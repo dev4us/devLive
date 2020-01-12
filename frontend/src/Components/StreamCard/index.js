@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-const StreamCard = ({ nickname, username, thumbnail }) => {
+const StreamCard = ({ nickname, username, thumbnail, profileImage }) => {
   return (
     <>
       <Container>
         <Thumbnail backgroundURL={thumbnail}>
           <Airon>LIVE</Airon>
           <Profile>{`${nickname} (${username})`}</Profile>
+          <ProfileImage backgroundURL={profileImage}></ProfileImage>
         </Thumbnail>
       </Container>
     </>
@@ -18,10 +19,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 32%;
+  min-width: 204px;
   cursor: pointer;
 
   &:hover {
-    border: 3px solid #ca74c3;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.1725);
   }
 `;
 
@@ -49,11 +51,21 @@ const Airon = styled.div`
 const Profile = styled.div`
   position: absolute;
   bottom: 5px;
-  right: 5px;
+  left: 60px;
   background: #585858ad;
   color: white;
   padding: 5px 5px 5px 5px;
   font-size: 12px;
 `;
 
+const ProfileImage = styled.div`
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  width: 50px;
+  height: 50px;
+  background-image: url(${props => props.backgroundURL});
+  background-size: cover;
+  border-radius: 15%;
+`;
 export default StreamCard;
