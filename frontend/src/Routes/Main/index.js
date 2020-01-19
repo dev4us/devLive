@@ -33,6 +33,7 @@ const Main = () => {
                 profileImage={val.profileImage}
                 nickname={val.nickname}
                 username={val.username}
+                streamBy="self"
               />
             ))}
           {twitchLiveStreams.data &&
@@ -46,6 +47,7 @@ const Main = () => {
                     profileImage={val.profileImage}
                     nickname={val.nickname}
                     username={val.username}
+                    streamBy="twitch"
                   />
                 );
               }

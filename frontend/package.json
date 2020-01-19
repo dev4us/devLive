@@ -12,6 +12,8 @@
     "apollo-link": "^1.2.13",
     "apollo-link-http": "^1.5.16",
     "apollo-link-ws": "^1.0.19",
+    "axios": "^0.19.1",
+    "dotenv": "^8.2.0",
     "graphql": "^14.5.8",
     "graphql-tag": "^2.10.1",
     "prop-types": "^15.7.2",

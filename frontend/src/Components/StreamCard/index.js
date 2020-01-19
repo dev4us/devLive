@@ -1,17 +1,27 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-const StreamCard = ({ nickname, username, thumbnail, profileImage }) => {
+import { Link } from "react-router-dom";
+
+const StreamCard = ({
+  nickname,
+  username,
+  thumbnail,
+  profileImage,
+  streamBy
+}) => {
   return (
     <>
       <Container>
-        <Thumbnail backgroundURL={thumbnail}>
-          <Airon>LIVE</Airon>
-          <Profile
-            isGotProfileImage={typeof profileImage === null ? "" : profileImage}
-          >{`${nickname} (${username})`}</Profile>
-          <ProfileImage backgroundURL={profileImage}></ProfileImage>
-        </Thumbnail>
+        <Link to={`/${streamBy}/${username}`}>
+          <Thumbnail backgroundURL={thumbnail}>
+            <Airon>LIVE</Airon>
+            <Profile
+              isGotProfileImage={profileImage}
+            >{`${nickname} (${username})`}</Profile>
+            <ProfileImage backgroundURL={profileImage}></ProfileImage>
+          </Thumbnail>
+        </Link>
       </Container>
     </>
   );
