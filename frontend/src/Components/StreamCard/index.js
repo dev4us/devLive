@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 import { Link } from "react-router-dom";
 
@@ -8,6 +8,8 @@ const StreamCard = ({
   username,
   thumbnail,
   profileImage,
+  status,
+  game,
   streamBy
 }) => {
   return (
@@ -15,12 +17,16 @@ const StreamCard = ({
       <Container>
         <Link to={`/${streamBy}/${username}`}>
           <Thumbnail backgroundURL={thumbnail}>
-            <Airon>LIVE</Airon>
-            <Profile
-              isGotProfileImage={profileImage}
-            >{`${nickname} (${username})`}</Profile>
-            <ProfileImage backgroundURL={profileImage}></ProfileImage>
+            <OnAir>LIVE</OnAir>
           </Thumbnail>
+          <ProfileCard>
+            <ProfileImage backgroundURL={profileImage}></ProfileImage>
+            <ProfileText>
+              <StreamName>{status}</StreamName>
+              <StreamerName>{`${nickname}(${username})`}</StreamerName>
+              <KindOfGame>{game}</KindOfGame>
+            </ProfileText>
+          </ProfileCard>
         </Link>
       </Container>
     </>
@@ -31,7 +37,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 32%;
-  min-width: 204px;
+  min-width: 330px;
   cursor: pointer;
   margin-bottom: 10px;
 
@@ -51,7 +57,7 @@ const Thumbnail = styled.div`
   background-size: cover;
 `;
 
-const Airon = styled.div`
+const OnAir = styled.div`
   position: absolute;
   top: 8px;
   left: 8px;
@@ -62,30 +68,48 @@ const Airon = styled.div`
   font-size: 10px;
 `;
 
-const Profile = styled.div`
-  position: absolute;
-  bottom: 5px;
-  left: 60px;
-  background: #585858ad;
-  color: white;
-  padding: 5px 5px 5px 5px;
-  font-size: 12px;
-
-  ${props =>
-    props.isGotProfileImage === null &&
-    css`
-      left: 5px;
-    `}
+const ProfileCard = styled.div`
+  display: flex;
+  width: 100%;
+  height: 80px;
+  padding-top: 15px;
+  padding-left: 15px;
 `;
 
 const ProfileImage = styled.div`
-  position: absolute;
-  bottom: 5px;
-  left: 5px;
-  width: 50px;
+  min-width: 50px;
   height: 50px;
   background-image: url(${props => props.backgroundURL});
   background-size: cover;
-  border-radius: 15%;
+  border-radius: 100%;
 `;
+
+const ProfileText = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+`;
+
+const StreamName = styled.div`
+  font-size: 14px;
+  max-width: 280px;
+  font-weight: bold;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-right: 60px;
+`;
+
+const StreamerName = styled.div`
+  font-size: 12px;
+  color: #53535f;
+  padding-top: 5px;
+  padding-bottom: 3px;
+`;
+
+const KindOfGame = styled.div`
+  font-size: 12px;
+  color: #53535f;
+`;
+
 export default StreamCard;

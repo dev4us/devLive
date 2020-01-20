@@ -25,6 +25,8 @@ export const GET_LIVE_STREAMERS_ON_TWITCH = gql`
         nickname
         streamKey
         profileImage
+        status
+        game
         thumbnail
       }
     }
