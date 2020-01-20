@@ -10,7 +10,7 @@ export default {
         };
 
         const liveStreams = await fetch(
-          "https://api.twitch.tv/kraken/streams/?limit=12",
+          "https://api.twitch.tv/kraken/streams/?limit=30",
           {
             method: "GET",
             headers: headers
@@ -24,6 +24,8 @@ export default {
             profileImage: val.channel.logo,
             username: val.channel.name,
             nickname: val.channel.display_name,
+            status: val.channel.status,
+            game: val.channel.game,
             thumbnail: val.preview.medium
           });
         });

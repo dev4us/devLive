@@ -4,6 +4,8 @@ type User {
   password: String!
   nickname: String
   profileImage: String
+  status: String
+  game: String
   streamKey: String
   thumbnail: String
 }
