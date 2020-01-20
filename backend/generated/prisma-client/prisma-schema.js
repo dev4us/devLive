@@ -55,6 +55,8 @@ type User {
   username: String!
   nickname: String
   password: String!
+  status: String
+  game: String
   profileImage: String
   streamKey: String
 }
@@ -70,6 +72,8 @@ input UserCreateInput {
   username: String!
   nickname: String
   password: String!
+  status: String
+  game: String
   profileImage: String
   streamKey: String
 }
@@ -88,6 +92,10 @@ enum UserOrderByInput {
   nickname_DESC
   password_ASC
   password_DESC
+  status_ASC
+  status_DESC
+  game_ASC
+  game_DESC
   profileImage_ASC
   profileImage_DESC
   streamKey_ASC
@@ -99,6 +107,8 @@ type UserPreviousValues {
   username: String!
   nickname: String
   password: String!
+  status: String
+  game: String
   profileImage: String
   streamKey: String
 }
@@ -125,6 +135,8 @@ input UserUpdateInput {
   username: String
   nickname: String
   password: String
+  status: String
+  game: String
   profileImage: String
   streamKey: String
 }
@@ -133,6 +145,8 @@ input UserUpdateManyMutationInput {
   username: String
   nickname: String
   password: String
+  status: String
+  game: String
   profileImage: String
   streamKey: String
 }
@@ -194,6 +208,34 @@ input UserWhereInput {
   password_not_starts_with: String
   password_ends_with: String
   password_not_ends_with: String
+  status: String
+  status_not: String
+  status_in: [String!]
+  status_not_in: [String!]
+  status_lt: String
+  status_lte: String
+  status_gt: String
+  status_gte: String
+  status_contains: String
+  status_not_contains: String
+  status_starts_with: String
+  status_not_starts_with: String
+  status_ends_with: String
+  status_not_ends_with: String
+  game: String
+  game_not: String
+  game_in: [String!]
+  game_not_in: [String!]
+  game_lt: String
+  game_lte: String
+  game_gt: String
+  game_gte: String
+  game_contains: String
+  game_not_contains: String
+  game_starts_with: String
+  game_not_starts_with: String
+  game_ends_with: String
+  game_not_ends_with: String
   profileImage: String
   profileImage_not: String
   profileImage_in: [String!]

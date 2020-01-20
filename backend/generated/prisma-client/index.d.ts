@@ -110,6 +110,10 @@ export type UserOrderByInput =
   | "nickname_DESC"
   | "password_ASC"
   | "password_DESC"
+  | "status_ASC"
+  | "status_DESC"
+  | "game_ASC"
+  | "game_DESC"
   | "profileImage_ASC"
   | "profileImage_DESC"
   | "streamKey_ASC"
@@ -122,6 +126,8 @@ export interface UserCreateInput {
   username: String;
   nickname?: Maybe<String>;
   password: String;
+  status?: Maybe<String>;
+  game?: Maybe<String>;
   profileImage?: Maybe<String>;
   streamKey?: Maybe<String>;
 }
@@ -130,6 +136,8 @@ export interface UserUpdateInput {
   username?: Maybe<String>;
   nickname?: Maybe<String>;
   password?: Maybe<String>;
+  status?: Maybe<String>;
+  game?: Maybe<String>;
   profileImage?: Maybe<String>;
   streamKey?: Maybe<String>;
 }
@@ -138,6 +146,8 @@ export interface UserUpdateManyMutationInput {
   username?: Maybe<String>;
   nickname?: Maybe<String>;
   password?: Maybe<String>;
+  status?: Maybe<String>;
+  game?: Maybe<String>;
   profileImage?: Maybe<String>;
   streamKey?: Maybe<String>;
 }
@@ -199,6 +209,34 @@ export interface UserWhereInput {
   password_not_starts_with?: Maybe<String>;
   password_ends_with?: Maybe<String>;
   password_not_ends_with?: Maybe<String>;
+  status?: Maybe<String>;
+  status_not?: Maybe<String>;
+  status_in?: Maybe<String[] | String>;
+  status_not_in?: Maybe<String[] | String>;
+  status_lt?: Maybe<String>;
+  status_lte?: Maybe<String>;
+  status_gt?: Maybe<String>;
+  status_gte?: Maybe<String>;
+  status_contains?: Maybe<String>;
+  status_not_contains?: Maybe<String>;
+  status_starts_with?: Maybe<String>;
+  status_not_starts_with?: Maybe<String>;
+  status_ends_with?: Maybe<String>;
+  status_not_ends_with?: Maybe<String>;
+  game?: Maybe<String>;
+  game_not?: Maybe<String>;
+  game_in?: Maybe<String[] | String>;
+  game_not_in?: Maybe<String[] | String>;
+  game_lt?: Maybe<String>;
+  game_lte?: Maybe<String>;
+  game_gt?: Maybe<String>;
+  game_gte?: Maybe<String>;
+  game_contains?: Maybe<String>;
+  game_not_contains?: Maybe<String>;
+  game_starts_with?: Maybe<String>;
+  game_not_starts_with?: Maybe<String>;
+  game_ends_with?: Maybe<String>;
+  game_not_ends_with?: Maybe<String>;
   profileImage?: Maybe<String>;
   profileImage_not?: Maybe<String>;
   profileImage_in?: Maybe<String[] | String>;
@@ -290,6 +328,8 @@ export interface UserPreviousValues {
   username: String;
   nickname?: String;
   password: String;
+  status?: String;
+  game?: String;
   profileImage?: String;
   streamKey?: String;
 }
@@ -301,6 +341,8 @@ export interface UserPreviousValuesPromise
   username: () => Promise<String>;
   nickname: () => Promise<String>;
   password: () => Promise<String>;
+  status: () => Promise<String>;
+  game: () => Promise<String>;
   profileImage: () => Promise<String>;
   streamKey: () => Promise<String>;
 }
@@ -312,6 +354,8 @@ export interface UserPreviousValuesSubscription
   username: () => Promise<AsyncIterator<String>>;
   nickname: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
+  status: () => Promise<AsyncIterator<String>>;
+  game: () => Promise<AsyncIterator<String>>;
   profileImage: () => Promise<AsyncIterator<String>>;
   streamKey: () => Promise<AsyncIterator<String>>;
 }
@@ -363,6 +407,8 @@ export interface User {
   username: String;
   nickname?: String;
   password: String;
+  status?: String;
+  game?: String;
   profileImage?: String;
   streamKey?: String;
 }
@@ -372,6 +418,8 @@ export interface UserPromise extends Promise<User>, Fragmentable {
   username: () => Promise<String>;
   nickname: () => Promise<String>;
   password: () => Promise<String>;
+  status: () => Promise<String>;
+  game: () => Promise<String>;
   profileImage: () => Promise<String>;
   streamKey: () => Promise<String>;
 }
@@ -383,6 +431,8 @@ export interface UserSubscription
   username: () => Promise<AsyncIterator<String>>;
   nickname: () => Promise<AsyncIterator<String>>;
   password: () => Promise<AsyncIterator<String>>;
+  status: () => Promise<AsyncIterator<String>>;
+  game: () => Promise<AsyncIterator<String>>;
   profileImage: () => Promise<AsyncIterator<String>>;
   streamKey: () => Promise<AsyncIterator<String>>;
 }
@@ -394,6 +444,8 @@ export interface UserNullablePromise
   username: () => Promise<String>;
   nickname: () => Promise<String>;
   password: () => Promise<String>;
+  status: () => Promise<String>;
+  game: () => Promise<String>;
   profileImage: () => Promise<String>;
   streamKey: () => Promise<String>;
 }

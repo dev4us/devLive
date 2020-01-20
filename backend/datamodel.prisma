@@ -3,6 +3,8 @@ type User {
   username: String! @unique
   nickname: String
   password: String!
+  status: String
+  game: String
   profileImage: String
   streamKey: String @unique
 }
