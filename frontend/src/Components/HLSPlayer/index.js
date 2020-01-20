@@ -35,7 +35,7 @@ const usePlayer = ({ src, controls, autoplay }) => {
         player.dispose();
       }
     };
-  }, []);
+  });
   useEffect(() => {
     if (player !== null) {
       player.src({ src });
@@ -45,11 +45,11 @@ const usePlayer = ({ src, controls, autoplay }) => {
   return videoRef;
 };
 
-function Preview({ src, controls, autoplay }) {
+const HLSPlayer = ({ src, controls, autoplay, width, height }) => {
   const playerRef = usePlayer({ src, controls, autoplay });
 
   return (
-    <div style={{ width: "500px", height: "500px" }}>
+    <div style={{ width, height }}>
       <div data-vjs-player>
         <video
           ref={playerRef}
@@ -58,17 +58,17 @@ function Preview({ src, controls, autoplay }) {
       </div>
     </div>
   );
-}
+};
 
-Preview.propTypes = {
+HLSPlayer.propTypes = {
   src: PropTypes.string.isRequired,
   controls: PropTypes.bool,
   autoplay: PropTypes.bool
 };
 
-Preview.defaultProps = {
+HLSPlayer.defaultProps = {
   controls: true,
   autoplay: false
 };
 
-export default Preview;
+export default HLSPlayer;

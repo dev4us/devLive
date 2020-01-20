@@ -3,6 +3,7 @@ import styled from "styled-components";
 import LeftFrame from "../../Components/LeftFrame";
 
 import { withRouter } from "react-router-dom";
+import HLSPlayer from "../../Components/HLSPlayer";
 
 const Streaming = ({ match }) => {
   const matchSplit = match.url.split("/");
@@ -25,6 +26,15 @@ const Streaming = ({ match }) => {
             scrolling="no"
             allowfullscreen="true"
           ></iframe>
+        )}
+        {streamType === "self" && (
+          <HLSPlayer
+            autoplay={true}
+            controls={true}
+            width="100%"
+            height="80%"
+            src={`http://localhost:8000/live/xbdkj3aimg/index.m3u8`}
+          ></HLSPlayer>
         )}
       </RightFrame>
     </Container>

@@ -8,6 +8,8 @@ export const GET_LIVE_STREAMERS = gql`
       streamers {
         username
         nickname
+        status
+        game
         streamKey
         profileImage
       }
