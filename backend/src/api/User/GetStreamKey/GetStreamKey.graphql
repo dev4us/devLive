@@ -1,0 +1,9 @@
+type GetStreamKeyResponse {
+  ok: Boolean!
+  error: String
+  streamKey: String
+}
+
+type Query {
+  GetStreamKey(username: String!): GetStreamKeyResponse!
+}
