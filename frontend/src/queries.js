@@ -53,3 +53,13 @@ export const GET_LIVE_STREAMERS_ON_TWITCH = gql`
     }
   }
 `;
+
+export const GET_STREAM_KEY = gql`
+  query GetStreamKey($username: String!) {
+    GetStreamKey(username: $username) {
+      ok
+      error
+      streamKey
+    }
+  }
+`;

@@ -1,14 +1,21 @@
 import React from "react";
+import { useQuery } from "react-apollo-hooks";
+import { withRouter } from "react-router-dom";
+
 import styled from "styled-components";
 import LeftFrame from "../../Components/LeftFrame";
-
-import { withRouter } from "react-router-dom";
 import HLSPlayer from "../../Components/HLSPlayer";
+import { GET_STREAM_KEY } from "../../queries";
 
 const Streaming = ({ match }) => {
   const matchSplit = match.url.split("/");
   const streamType = matchSplit[1];
   const channelName = matchSplit[2];
+
+  const getStreamKey = useQuery(GET_STREAM_KEY, {
+    variables: { username: channelName }
+  });
+  console.log(getStreamKey);
 
   return (
     <Container>
@@ -27,15 +34,19 @@ const Streaming = ({ match }) => {
             allowfullscreen="true"
           ></iframe>
         )}
-        {streamType === "self" && (
-          <HLSPlayer
-            autoplay={true}
-            controls={true}
-            width="100%"
-            height="80%"
-            src={`http://localhost:8000/live/xbdkj3aimg/index.m3u8`}
-          ></HLSPlayer>
-        )}
+        {streamType === "self" &&
+          getStreamKey.loading === false &&
+          getStreamKey.data.GetStreamKey &&
+          getStreamKey.data.GetStreamKey.ok === true &&
+          getStreamKey.data.GetStreamKey.streamKey !== null && (
+            <HLSPlayer
+              autoplay={true}
+              controls={true}
+              width="90%"
+              height="80%"
+              src={`http://localhost:8000/live/${getStreamKey.data.GetStreamKey.streamKey}/index.m3u8`}
+            ></HLSPlayer>
+          )}
       </RightFrame>
     </Container>
   );

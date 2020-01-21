@@ -13,7 +13,7 @@ import {
 const Main = () => {
   const hlsLiveStreams = useQuery(GET_LIVE_STREAMERS);
   const twitchLiveStreams = useQuery(GET_LIVE_STREAMERS_ON_TWITCH);
-  console.log(twitchLiveStreams);
+
   return (
     <Container>
       <LeftFrame>123</LeftFrame>
