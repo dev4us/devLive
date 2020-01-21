@@ -1,5 +1,24 @@
 import gql from "graphql-tag";
 
+// client Query & Mutation
+export const IS_LOGIN = gql`
+  {
+    isLoggedIn @client
+  }
+`;
+
+export const LOGIN = gql`
+  mutation logUserOut {
+    logUserOut @client
+  }
+`;
+export const LOGOUT = gql`
+  mutation logUserOut {
+    logUserOut @client
+  }
+`;
+
+// to Server Query & Mutation
 export const GET_LIVE_STREAMERS = gql`
   query {
     GetLiveStreamers {
