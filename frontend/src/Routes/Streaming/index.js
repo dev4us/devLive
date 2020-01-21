@@ -15,7 +15,6 @@ const Streaming = ({ match }) => {
   const getStreamKey = useQuery(GET_STREAM_KEY, {
     variables: { username: channelName }
   });
-  console.log(getStreamKey);
 
   return (
     <Container>
@@ -29,13 +28,14 @@ const Streaming = ({ match }) => {
             src={`https://player.twitch.tv/?channel=${channelName}&muted=false`}
             width="100%"
             height="80%"
-            frameborder="0"
+            frameBorder="0"
             scrolling="no"
-            allowfullscreen="true"
+            allowFullScreen={true}
           ></iframe>
         )}
         {streamType === "self" &&
           getStreamKey.loading === false &&
+          getStreamKey.data &&
           getStreamKey.data.GetStreamKey &&
           getStreamKey.data.GetStreamKey.ok === true &&
           getStreamKey.data.GetStreamKey.streamKey !== null && (

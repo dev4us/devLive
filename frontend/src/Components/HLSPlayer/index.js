@@ -1,11 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useLayoutEffect } from "react";
 import PropTypes from "prop-types";
 import videojs from "video.js";
 
 import "video.js/dist/video-js.css";
 import "@videojs/themes/dist/fantasy/index.css";
 
-const usePlayer = ({ src, controls, autoplay }) => {
+const HLSPlayer = ({ src, controls, autoplay, width, height }) => {
+  const videoNode = useRef(null);
   const options = {
     fill: true,
     fluid: true,
@@ -18,41 +19,23 @@ const usePlayer = ({ src, controls, autoplay }) => {
       }
     }
   };
-  const videoRef = useRef(null);
-  const [player, setPlayer] = useState(null);
-
-  useEffect(() => {
-    const vjsPlayer = videojs(videoRef.current, {
+  useLayoutEffect(() => {
+    const player = videojs(videoNode.current, {
       ...options,
       controls,
       autoplay,
       sources: [src]
     });
-    setPlayer(vjsPlayer);
-
     return () => {
-      if (player !== null) {
-        player.dispose();
-      }
+      player.dispose();
     };
-  });
-  useEffect(() => {
-    if (player !== null) {
-      player.src({ src });
-    }
-  }, [src]);
-
-  return videoRef;
-};
-
-const HLSPlayer = ({ src, controls, autoplay, width, height }) => {
-  const playerRef = usePlayer({ src, controls, autoplay });
+  }, [JSON.stringify(options)]);
 
   return (
     <div style={{ width, height }}>
       <div data-vjs-player>
         <video
-          ref={playerRef}
+          ref={videoNode}
           className="video-js vjs-big-play-centered vjs-theme-fantasy vjs-fluid"
         />
       </div>
