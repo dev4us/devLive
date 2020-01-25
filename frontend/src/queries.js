@@ -8,8 +8,8 @@ export const IS_LOGIN = gql`
 `;
 
 export const LOGIN = gql`
-  mutation logUserOut {
-    logUserOut @client
+  mutation logUserIn($token: String!) {
+    logUserIn(token: $token) @client
   }
 `;
 export const LOGOUT = gql`

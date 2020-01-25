@@ -33,7 +33,9 @@ const LeftFrame = () => {
           </SmallMenu>
         </>
       ) : (
-        <SmallMenu>Login</SmallMenu>
+        <Link to="/signin">
+          <SmallMenu>Login</SmallMenu>
+        </Link>
       )}
     </Container>
   );
