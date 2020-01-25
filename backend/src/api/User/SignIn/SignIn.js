@@ -3,7 +3,7 @@ import { comparePwd } from "../../../helpers/password";
 import { generateToken } from "../../../helpers/passport";
 
 export default {
-  Query: {
+  Mutation: {
     SignIn: async (_, args) => {
       try {
         const { username, password } = args;

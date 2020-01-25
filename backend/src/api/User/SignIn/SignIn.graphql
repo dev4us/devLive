@@ -4,6 +4,6 @@ type SignInResponse {
   token: String
 }
 
-type Query {
+type Mutation {
   SignIn(username: String!, password: String!): SignInResponse!
 }
