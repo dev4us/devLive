@@ -8,17 +8,28 @@ export default {
         verifyAuth(request);
         const { nickname, password, profileImage, status, game } = args;
         const { user } = request;
+        let data = new Object();
 
-        const encryptedPwd = await encryptPwd(password);
-
-        await prisma.updateUser({
-          data: {
+        if (password) {
+          const encryptedPwd = await encryptPwd(password);
+          data = {
             nickname,
             password: encryptedPwd,
             profileImage,
             status,
             game
-          },
+          };
+        } else {
+          data = {
+            nickname,
+            profileImage,
+            status,
+            game
+          };
+        }
+
+        await prisma.updateUser({
+          data,
           where: { id: user.id }
         });
 
