@@ -1,8 +1,8 @@
 import bcrypt from "bcrypt";
 import "../env";
 
-export const encryptPwd = planPwd => {
-  return bcrypt.hash(planPwd, process.env.ROUND_ENCRYPT || 10);
+export const encryptPwd = async planPwd => {
+  return bcrypt.hash(planPwd, process.env.ROUND_ENCRYPT.parseInt || 8);
 };
 
 export const comparePwd = (planPwd, encryptedPwd) => {
