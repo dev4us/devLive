@@ -27,6 +27,16 @@ export const LOGIN_SERVER = gql`
     }
   }
 `;
+
+export const SIGNUP_SERVER = gql`
+  mutation SignUp($username: String!, $nickname: String!, $password: String!) {
+    SignUp(username: $username, nickname: $nickname, password: $password) {
+      ok
+      error
+    }
+  }
+`;
+
 // to Server Query & Mutation
 export const GET_LIVE_STREAMERS = gql`
   query {

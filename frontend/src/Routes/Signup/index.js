@@ -4,25 +4,27 @@ import { useMutation } from "@apollo/react-hooks";
 import styled from "styled-components";
 import LeftFrame from "../../Components/LeftFrame";
 import { Link } from "react-router-dom";
-import { LOGIN_SERVER, LOGIN } from "../../queries";
+import { SIGNUP_SERVER } from "../../queries";
 
-const Signin = () => {
+const Signup = () => {
   const [username, setUsername] = useState("");
+  const [nickname, setNickname] = useState("");
   const [password, setPassword] = useState("");
-  const [loginServer, { data }] = useMutation(LOGIN_SERVER);
-  const [loginLocal] = useMutation(LOGIN);
+  const [signupServer, { data }] = useMutation(SIGNUP_SERVER);
 
-  const tryLogin = () => {
-    if (username === "" || password === "") {
-      alert("Please enter your account information");
+  const trySignUp = () => {
+    if (username === "" || nickname === "" || password === "") {
+      alert("Please enter your account information required.");
       return false;
     }
-    loginServer({ variables: { username: username, password: password } });
+    signupServer({
+      variables: { username: username, password: password, nickname: nickname }
+    });
   };
 
   useEffect(() => {
-    if (data && data.SignIn && data.SignIn.ok) {
-      loginLocal({ variables: { token: data.SignIn.token } });
+    if (data && data.SignUp && data.SignUp.ok) {
+      window.location = "/";
     }
   }, [data]);
 
@@ -40,6 +42,11 @@ const Signin = () => {
             onChange={e => setUsername(e.target.value)}
           ></InputFrame>
           <InputFrame
+            placeholder="nickname"
+            value={nickname}
+            onChange={e => setNickname(e.target.value)}
+          ></InputFrame>
+          <InputFrame
             type="password"
             placeholder="password"
             value={password}
@@ -47,17 +54,14 @@ const Signin = () => {
           ></InputFrame>
           <ButtonFrame
             onClick={() => {
-              tryLogin();
+              trySignUp();
             }}
           >
-            SIGN IN
+            SIGN UP
           </ButtonFrame>
-          {data && data.SignIn && !data.SignIn.ok && (
-            <Log>{data.SignIn.error}</Log>
+          {data && data.SignUp && !data.SignUp.ok && (
+            <Log>{data.SignUp.error}</Log>
           )}
-          <WrapLetterBtn to="/signup">
-            <LetterBtn>I Don't have a account</LetterBtn>
-          </WrapLetterBtn>
         </VerticalFrame>
       </RightFrame>
     </Container>
@@ -122,14 +126,4 @@ const Log = styled.span`
   margin-bottom: 5px;
 `;
 
-const WrapLetterBtn = styled(Link)`
-  text-align: center;
-`;
-
-const LetterBtn = styled.span`
-  font-size: 12px;
-  color: #484848;
-  text-decoration: underline;
-`;
-
-export default Signin;
+export default Signup;
