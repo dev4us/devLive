@@ -18,7 +18,7 @@ export default {
           };
         }
 
-        if (comparePwd(password, user.password)) {
+        if (await comparePwd(password, user.password)) {
           return {
             ok: true,
             error: null,
