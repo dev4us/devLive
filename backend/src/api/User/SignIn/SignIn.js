@@ -14,7 +14,8 @@ export default {
           return {
             ok: false,
             error: "No exist User, SignUp first",
-            token: null
+            token: null,
+            username: null
           };
         }
 
@@ -22,20 +23,23 @@ export default {
           return {
             ok: true,
             error: null,
-            token: await generateToken(user.id)
+            token: await generateToken(user.id),
+            username
           };
         } else {
           return {
             ok: false,
             error: "Passwords do not match",
-            token: null
+            token: null,
+            username: null
           };
         }
       } catch (error) {
         return {
           ok: false,
           error: error.message,
-          token: null
+          token: null,
+          username: null
         };
       }
     }

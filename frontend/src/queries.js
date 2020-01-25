@@ -8,8 +8,8 @@ export const IS_LOGIN = gql`
 `;
 
 export const LOGIN = gql`
-  mutation logUserIn($token: String!) {
-    logUserIn(token: $token) @client
+  mutation logUserIn($token: String!, $username: String!) {
+    logUserIn(token: $token, username: $username) @client
   }
 `;
 export const LOGOUT = gql`
@@ -24,6 +24,7 @@ export const LOGIN_SERVER = gql`
       ok
       error
       token
+      username
     }
   }
 `;

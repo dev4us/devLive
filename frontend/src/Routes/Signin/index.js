@@ -21,8 +21,11 @@ const Signin = () => {
   };
 
   useEffect(() => {
+    console.log(data);
     if (data && data.SignIn && data.SignIn.ok) {
-      loginLocal({ variables: { token: data.SignIn.token } });
+      loginLocal({
+        variables: { token: data.SignIn.token, username: data.SignIn.username }
+      });
     }
   }, [data]);
 

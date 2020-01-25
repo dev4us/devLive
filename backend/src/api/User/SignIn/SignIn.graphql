@@ -2,6 +2,7 @@ type SignInResponse {
   ok: Boolean!
   error: String
   token: String
+  username: String
 }
 
 type Mutation {
