@@ -1,5 +1,5 @@
 import React from "react";
-import { useQuery } from "react-apollo-hooks";
+import { useQuery } from "@apollo/react-hooks";
 import styled from "styled-components";
 
 import LeftFrame from "../../Components/LeftFrame";

@@ -18,6 +18,15 @@ export const LOGOUT = gql`
   }
 `;
 
+export const LOGIN_SERVER = gql`
+  mutation SignIn($username: String!, $password: String!) {
+    SignIn(username: $username, password: $password) {
+      ok
+      error
+      token
+    }
+  }
+`;
 // to Server Query & Mutation
 export const GET_LIVE_STREAMERS = gql`
   query {

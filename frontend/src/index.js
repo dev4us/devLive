@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 import Routes from "./Routes";
 
-import { ApolloProvider } from "react-apollo-hooks";
+import { ApolloProvider } from "@apollo/react-hooks";
 import { GlobalProvider } from "./GlobalState/store";
 
 import client from "./apolloClient";

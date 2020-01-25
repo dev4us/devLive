@@ -4,8 +4,8 @@ export const defaults = {
 
 export const resolvers = {
   Mutation: {
-    logUserIn: (_, { token }, { cache }) => {
-      localStorage.setItem("jwt", token);
+    logUserIn: (_, args, { cache }) => {
+      localStorage.setItem("jwt", args.token);
       cache.writeData({
         data: {
           isLoggedIn: true
