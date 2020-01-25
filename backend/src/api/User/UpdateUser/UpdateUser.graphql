@@ -8,5 +8,7 @@ type Mutation {
     nickname: String
     password: String
     profileImage: String
+    status: String
+    game: String
   ): UpdateUserResponse!
 }

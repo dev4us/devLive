@@ -6,13 +6,19 @@ export default {
     UpdateUser: async (_, args, { request, verifyAuth }) => {
       try {
         verifyAuth(request);
-        const { nickname, password, profileImage } = args;
+        const { nickname, password, profileImage, status, game } = args;
         const { user } = request;
 
         const encryptedPwd = await encryptPwd(password);
 
         await prisma.updateUser({
-          data: { nickname, password: encryptedPwd, profileImage },
+          data: {
+            nickname,
+            password: encryptedPwd,
+            profileImage,
+            status,
+            game
+          },
           where: { id: user.id }
         });
 

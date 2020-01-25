@@ -4,13 +4,13 @@ export default {
   Query: {
     GetStreamer: async (_, args) => {
       try {
-        const { streamKey } = args;
-        const streamer = await prisma.user({ streamKey });
+        const { username } = args;
+        const user = await prisma.user({ username });
 
-        if (!streamer) {
+        if (!user) {
           return {
             ok: false,
-            error: "해당 스트리머는 방송 중이 아니거나 등록되지 않았습니다.",
+            error: "not exist User",
             user: null
           };
         }
@@ -18,7 +18,7 @@ export default {
         return {
           ok: true,
           error: null,
-          user: streamer
+          user: user
         };
       } catch (error) {
         return {

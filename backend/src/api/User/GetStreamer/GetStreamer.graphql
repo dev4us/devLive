@@ -5,5 +5,5 @@ type GetStreamerResponse {
 }
 
 type Query {
-  GetStreamer(streamKey: String!): GetStreamerResponse!
+  GetStreamer(username: String!): GetStreamerResponse!
 }
