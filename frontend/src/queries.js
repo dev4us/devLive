@@ -119,3 +119,13 @@ export const UPDATE_USER = gql`
     }
   }
 `;
+
+export const GENERATE_STREAM_KEY = gql`
+  mutation GenerateStreamKey {
+    GenerateStreamKey {
+      ok
+      error
+      streamKey
+    }
+  }
+`;

@@ -22,6 +22,9 @@ const LeftFrame = () => {
       isLogged.data.isLoggedIn &&
       isLogged.data.isLoggedIn === true ? (
         <>
+          <Link to="/doStreaming">
+            <Menu>Try Streaming</Menu>
+          </Link>
           <Link to="/setting">
             <Menu>Setting</Menu>
           </Link>
