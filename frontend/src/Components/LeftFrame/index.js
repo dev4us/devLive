@@ -22,7 +22,9 @@ const LeftFrame = () => {
       isLogged.data.isLoggedIn &&
       isLogged.data.isLoggedIn === true ? (
         <>
-          <Menu>Do Streaming</Menu>
+          <Link to="/setting">
+            <Menu>Setting</Menu>
+          </Link>
           <SmallMenu
             onClick={e => {
               e.preventDefault();

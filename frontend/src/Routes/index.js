@@ -4,6 +4,7 @@ import Main from "./Main";
 import Streaming from "./Streaming";
 import Signin from "./Signin";
 import Signup from "./Signup";
+import Setting from "./Setting";
 
 const Routes = () => (
   <BrowserRouter>
@@ -13,6 +14,7 @@ const Routes = () => (
       <Route path="/twitch/:channelName" exact component={Streaming} />
       <Route path="/signin" exact component={Signin} />
       <Route path="/signup" exact component={Signup} />
+      <Route path="/setting" exact component={Setting} />
       <Redirect from={"*"} to={"/"} />
     </Switch>
   </BrowserRouter>

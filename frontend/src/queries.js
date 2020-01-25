@@ -38,6 +38,21 @@ export const SIGNUP_SERVER = gql`
   }
 `;
 
+export const GET_STREAMER = gql`
+  query GetStreamer($username: String!) {
+    GetStreamer(username: $username) {
+      ok
+      error
+      user {
+        nickname
+        status
+        game
+        profileImage
+      }
+    }
+  }
+`;
+
 // to Server Query & Mutation
 export const GET_LIVE_STREAMERS = gql`
   query {
@@ -80,6 +95,27 @@ export const GET_STREAM_KEY = gql`
       ok
       error
       streamKey
+    }
+  }
+`;
+
+export const UPDATE_USER = gql`
+  mutation UpdateUser(
+    $nickname: String
+    $password: String
+    $profileImage: String
+    $status: String
+    $game: String
+  ) {
+    UpdateUser(
+      nickname: $nickname
+      password: $password
+      profileImage: $profileImage
+      status: $status
+      game: $game
+    ) {
+      ok
+      error
     }
   }
 `;
