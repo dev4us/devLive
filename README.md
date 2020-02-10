@@ -1,6 +1,8 @@
 # devLive
+Live Steaming Service
 [![Video Label](http://img.youtube.com/vi/0vmk-YUuGH4/0.jpg)](https://www.youtube.com/watch?v=0vmk-YUuGH4)
-Live Steaming Service : )
+
+introduction video clip for my service : )
 
 ### for Streaming
 
