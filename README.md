@@ -12,7 +12,7 @@ Please click to thumbnail for watching !
 
 Ask & Message to me:
 
-public.dev4us@gmail.com & dev4us@kakao.com
+public.dev4us@gmail.com || dev4us@kakao.com
 
 thanks you ;)
 
