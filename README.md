@@ -1,6 +1,8 @@
 # devLive
 
-[![Video Label](http://img.youtube.com/vi/0vmk-YUuGH4/0.jpg)](https://www.youtube.com/watch?v=0vmk-YUuGH4)
+click this thumbnail!
+
+[![Video Label](https://github.com/dev4us/source_warehouse/blob/master/images/mdthumbnail.png?raw=true)](https://www.youtube.com/watch?v=0vmk-YUuGH4)
 
 ## Live Steaming Service, devLive
 
