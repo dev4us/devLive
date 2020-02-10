@@ -2,10 +2,18 @@
 
 [![Video Label](http://img.youtube.com/vi/0vmk-YUuGH4/0.jpg)](https://www.youtube.com/watch?v=0vmk-YUuGH4)
 
-Live Steaming Service
+## Live Steaming Service, devLive
 
-introduction video clip for my service : )
-please click to thumbnail for watching !
+Introduction video clip for my service : )
+
+Please click to thumbnail for watching !
+
+Ask & Message to me:
+
+public.dev4us@gmail.com & dev4us@kakao.com
+
+thanks you ;)
+
 
 ### for Streaming
 
