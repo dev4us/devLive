@@ -38,7 +38,7 @@ const DoStreaming = () => {
           <SubTitle>Streaming Key</SubTitle>
           <InputFrame
             placeholder="streaming Key"
-            value={streamKey}
+            value={streamKey || ""}
             onChange={e => setStreamKey(e.target.value)}
             disabled
           ></InputFrame>

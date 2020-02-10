@@ -91,24 +91,24 @@ const Setting = () => {
           <SubTitle>Account</SubTitle>
           <InputFrame
             placeholder="nickname"
-            value={nickname}
+            value={nickname || ""}
             onChange={e => setNickname(e.target.value)}
           ></InputFrame>
           <InputFrame
             type="password"
             placeholder="password"
-            value={password}
+            value={password || ""}
             onChange={e => setPassword(e.target.value)}
           ></InputFrame>
           <SubTitle>Streaming</SubTitle>
           <InputFrame
             placeholder="Stream Name"
-            value={streamName}
+            value={streamName || ""}
             onChange={e => setStreamName(e.target.value)}
           ></InputFrame>
           <InputFrame
             placeholder="Category"
-            value={category}
+            value={category || ""}
             onChange={e => setCategory(e.target.value)}
           ></InputFrame>
           <ButtonFrame onClick={() => modifyConfirm()}>CONFIRM</ButtonFrame>
