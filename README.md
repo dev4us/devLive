@@ -1,4 +1,4 @@
-# devLive
+# Live Streaming Service, devLive! (Toy Project)
 
 click this thumbnail!
 
